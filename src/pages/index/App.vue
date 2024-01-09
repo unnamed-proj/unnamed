@@ -51,9 +51,6 @@
 <script setup lang="ts">
 import Bottom from "../../components/Page/Bottom.vue";
 import { onMounted, Ref, ref } from "vue";
-import {useRouter} from "vue-router";
-
-const router = useRouter();
 
 const MainElement: Ref<HTMLElement | null> = ref(null);
 const BottomOpen = ref(false);
