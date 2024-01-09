@@ -10,7 +10,6 @@ export default defineConfig({
       rollupOptions: {
         input: {
           index: resolve(__dirname, 'src/pages/index/main.ts'),
-          // page2: resolve(__dirname, 'src/page2/main.js')
         }
       }
     }

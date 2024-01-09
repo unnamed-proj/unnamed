@@ -6,7 +6,7 @@
       <div class="sm:justify-center text-black flex flex-col sm:flex-row sm:items-center mt-4 justify-start gap-5 overflow-hidden w-full">
         <n-avatar
             :size="48"
-            src="https://avatars.githubusercontent.com/u/134170517?s=200&v=4"
+            src="/favicon.ico"
         />
         <div class="font-mono text-3xl">Unnamed Project</div>
       </div>
