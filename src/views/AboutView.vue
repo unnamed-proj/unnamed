@@ -1,46 +1,73 @@
 <template>
-  <n-space>
-    <n-button>
-      Wouldn't it be Nice
-    </n-button>
-    <n-button @click="addCount">
-      Satisfaction {{count}}
-    </n-button>
-  </n-space>
+  <n-notification-provider :placement="placement">
+    <placement-buttons @placement-change="handlePlacementChange" />
+  </n-notification-provider>
 </template>
-<script lang="ts" setup>
-import {ref} from "vue";
-import {useNotification} from "naive-ui";
-// const notification = useNotification()
 
-const count = ref(0);
-const addCount = () => {count.value += 1}
+<script lang="ts">
+import { defineComponent, h, ref, PropType } from 'vue'
+import {
+  useNotification,
+  NButton,
+  NSpace,
+  NotificationPlacement
+} from 'naive-ui'
 
-//
-// const handleClick1 = () => {
-//   notification.create({
-//     title: "Wouldn't it be Nice",
-//     description: 'From the Beach Boys',
-//     content: `Wouldn't it be nice if we were older
-// Then we wouldn't have to wait so long
-// And wouldn't it be nice to live together
-// In the kind of world where we belong
-// You know its gonna make it that much better
-// When we can say goodnight and stay together
-// Wouldn't it be nice if we could wake up
-// In the morning when the day is new
-// And after having spent the day together
-// Hold each other close the whole night through`,
-//     meta: '2019-5-27 15:11',
-//     avatar: () =>
-//         h(NAvatar, {
-//           size: 'small',
-//           round: true,
-//           src: 'https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg'
-//         }),
-//     onAfterLeave: () => {
-//       message.success("Wouldn't it be Nice")
-//     }
-//   })
-// }
+const PlacementButtons = defineComponent({
+  props: {
+    onPlacementChange: Function as PropType<
+        (placement: NotificationPlacement) => void
+    >
+  },
+  setup () {
+    const notification = useNotification()
+    const placementList = [
+      { placement: 'top-left', text: '左上' },
+      { placement: 'top-right', text: '右上' },
+      { placement: 'bottom-left', text: '左下' },
+      { placement: 'bottom-right', text: '右下' },
+      { placement: 'bottom', text: '下' },
+      { placement: 'top', text: '上' }
+    ] as const
+    return {
+      notification,
+      placementList
+    }
+  },
+  render () {
+    return h(NSpace, null, {
+      default: () =>
+          this.placementList.map((item) =>
+              h(
+                  NButton,
+                  {
+                    onClick: () => {
+                      this.onPlacementChange?.(item.placement)
+                      this.notification.info({
+                        title: item.placement,
+                        content: 'You can change the placement'
+                      })
+                    }
+                  },
+                  { default: () => item.text }
+              )
+          )
+    })
+  }
+})
+
+export default defineComponent({
+  components: {
+    PlacementButtons
+  },
+  setup () {
+    const placementRef = ref<NotificationPlacement>('top-right')
+    return {
+      placement: placementRef,
+      handlePlacementChange (val: NotificationPlacement) {
+        placementRef.value = val
+      }
+    }
+  }
+})
 </script>
