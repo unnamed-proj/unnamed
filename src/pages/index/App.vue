@@ -21,9 +21,9 @@ const BottomOpen = ref(false);
 
 
 onMounted(() => {
-  const container = MainElement.value;
 
   const FunctionEle = (event) => {
+    const container = MainElement.value;
     const scrollHeight = container.scrollHeight;
     const scrollTop = container.scrollTop;
     const clientHeight = container.clientHeight;
@@ -43,6 +43,7 @@ onMounted(() => {
   }
 
   const FunctionEle2 = () => {
+    const container = MainElement.value;
     const scrollHeight = container.scrollHeight;
     const scrollTop = container.scrollTop;
     const clientHeight = container.clientHeight;
@@ -57,6 +58,7 @@ onMounted(() => {
     }
   }
 
+  const container = MainElement.value;
   container.addEventListener('wheel', FunctionEle);
   container.addEventListener('scroll', FunctionEle2);
 });
