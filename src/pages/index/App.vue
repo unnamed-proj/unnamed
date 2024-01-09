@@ -1,15 +1,59 @@
+<style>
+@keyframes test {
+  0% {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-5rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 100;
+
+  }
+}
+@keyframes test2 {
+  from {
+    transform: translateY(0rem);
+    opacity: 100;
+  }
+  to {
+    transform: translateY(5rem);
+    opacity: 0;
+
+  }
+}
+.slide-fade-enter-active {
+  animation: test 1.5s;
+}
+.slide-fade-leave-active {
+  animation: test2 1s;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  animation: test2 1s;
+}
+</style>
+
 <template>
   <unnamed-proj ref="MainElement">
-    <div class="shadow-2xl shadow-[#b40202] max-w-screen-xl sm:mx-auto">
-      <router-view />
-    </div>
+    <div class=" max-w-screen-xl sm:mx-auto">
+      <transition name="slide-fade">
+        <router-view />
+      </transition>
     <Bottom v-if="BottomOpen" />
+    </div>
   </unnamed-proj>
 </template>
 
 <script setup lang="ts">
 import Bottom from "../../components/Page/Bottom.vue";
 import { onMounted, Ref, ref } from "vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const MainElement: Ref<HTMLElement | null> = ref(null);
 const BottomOpen = ref(false);

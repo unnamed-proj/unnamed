@@ -1,7 +1,7 @@
 
 
 <template>
-  <div ref="ad" class="relative isolate flex items-center bg-[#e9e8f3] gap-x-6 transition-all duration-1000 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+  <div ref="ad" class="absolute w-full top-0 isolate flex items-center bg-[#e9e8f3] gap-x-6 transition-all duration-1000 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
     <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
       <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#e9e8f3] to-[#e4b5d9] " style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
     </div>
@@ -24,19 +24,20 @@
     </div>
   </div>
 
-  <div class="w-full h-[120vh] flex flex-col items-center justify-center">
-  <div class="text-2xl font-mono">Hello  World!</div><span class="rotate text-[#b40202] text-2xl">☯</span>
-  <div class="mt-1">你好，世界</div>
-</div>
+  <Center class="w-full h-[100vh] flex-col">
+    <div class="text-2xl font-mono">Hello  World!</div><span class="rotate text-[#b40202] text-2xl">☯</span>
+    <RouterLink to="about" class="mt-1">你好，世界</RouterLink>
+  </Center>
 </template>
 <script setup lang="ts">
 
 import {Ref, ref} from "vue";
+import Center from "../components/Center.vue";
 
 const ad: Ref<HTMLElement | null> = ref(null);
 const CloseAD = () => {
-  // ad.value?.classList.toggle("-translate-y-14");
-  ad.value?.classList.toggle("opacity-0");
+  ad.value?.classList.toggle("-translate-y-14");
+  // ad.value?.classList.toggle("opacity-0");
   setTimeout(()=>{
     ad.value?.remove();
   },800)
