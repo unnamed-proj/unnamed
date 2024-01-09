@@ -15,4 +15,4 @@ app.use(naive)
 
 app.use(router)
 
-app.mount('unnamed-proj')
+app.mount('body')

@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+unnamed-proj {
+    display: block;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: visible;
+    overflow-x: hidden;
+    position: relative;
+}
