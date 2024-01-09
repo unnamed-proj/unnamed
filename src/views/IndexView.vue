@@ -25,7 +25,9 @@
   </div>
 
   <div class="w-full h-[120vh] flex flex-col items-center justify-center">
-  <div class="text-2xl font-mono">Hello, World!</div>
+  <div class="text-2xl font-mono">Hello  World!</div><span class="rotate text-[#b40202] text-2xl">☯</span>
   <div class="mt-1">你好，世界</div>
 </div>
 </template>
+<script setup lang="ts">
+</script>

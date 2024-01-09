@@ -26,3 +26,17 @@ unnamed-proj {
     overflow-x: hidden;
     position: relative;
 }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 10s infinite linear;
+    font-family: monospace;
+}

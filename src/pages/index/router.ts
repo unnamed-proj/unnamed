@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from "../../views/IndexView.vue";
-import NotFound from  "../../views/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory("/"),
@@ -18,7 +17,7 @@ const router = createRouter({
     //   // which is lazy-loaded when the route is visited.
     //   component: () => import('../../views/AboutView.vue')
     // },
-    { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../../views/NotFound.vue') },
   ]
 })
 
