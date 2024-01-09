@@ -1,6 +1,6 @@
 <template>
   <n-space>
-    <n-button @click="handleClick1">
+    <n-button>
       Wouldn't it be Nice
     </n-button>
     <n-button @click="addCount">
