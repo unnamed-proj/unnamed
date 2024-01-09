@@ -20,7 +20,7 @@
       </p>
     </div>
     <ul class="items-center justify-center mt-6 space-y-5 text-base sm:grid sm:space-x-4 sm:space-y-0 sm:mx-20 grid-cols-5 gap-4">
-      <li v-for="item in footerNavs" :key="item.id" class="hover:text-gray-800">
+      <li v-for="(item,index) in footerNavs" :key="index" class="hover:text-gray-800">
         <a href="{{item.href}}">
           {{item.name}}
         </a>

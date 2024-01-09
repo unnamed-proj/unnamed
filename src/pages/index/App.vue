@@ -1,7 +1,7 @@
 <template>
 
   <unnamed-proj ref="MainElement">
-    <div class="shadow-2xl shadow-[#b40202] max-w-screen-xl mx-auto">
+    <div class="shadow-2xl shadow-[#b40202] max-w-screen-xl sm:mx-auto">
       <router-view />
 
     </div>
@@ -47,10 +47,10 @@ onMounted(() => {
     const scrollTop = container.scrollTop;
     const clientHeight = container.clientHeight;
 
-    if (scrollTop + clientHeight >= scrollHeight) {
+    if (scrollTop + clientHeight >= scrollHeight - 1) {
       // 在这里执行你的逻辑
       BottomOpen.value = true;
-
+      console.log("aaaa")
 
     }else if (scrollTop + clientHeight <= scrollHeight -  document.getElementById("footer")?.scrollHeight) {
       BottomOpen.value = false;
