@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="text-gray-500 bg-white px-10 py-5 max-w-screen-xl mx-auto w-screen shadow-[#b40202] shadow-2xl border-t">
+  <footer id="footer" class="text-gray-500 bg-white px-10 py-5 w-full mx-auto shadow-[#b40202] shadow-2xl border-t">
     <div class=" sm:mx-auto sm:text-center mt-3">
 
       <div class="sm:justify-center text-black flex flex-col sm:flex-row sm:items-center mt-4 justify-start gap-5 overflow-hidden w-full">
@@ -7,7 +7,7 @@
         <div class="font-mono text-3xl">Unnamed Project</div>
       </div>
       <div class="font-mono flex items-center sm:justify-center mt-1">
-        <p class="">少女祈祷中</p> <p class="mx-2">~</p> <span class="rotate">☯</span>
+        <p class="">少女祈祷中</p> <p class="mx-2">~</p> <span class="rotate text-base">☯</span>
 
       </div>
       <p class="leading-relaxed my-4 text-[15px]">

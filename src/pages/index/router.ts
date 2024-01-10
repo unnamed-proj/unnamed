@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory("/"),
   routes: [
     {
-      path: '/',
+      path: '//',
       name: 'index',
       component: IndexView
     },
@@ -16,6 +16,39 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../../views/AboutView.vue')
+    },
+    {
+      path: '/',
+      name: 'auth',
+      children: [
+        {
+          path: '/portal',
+          name: 'portal',
+          component: () => import('../../views/auth/PortalView.vue')
+        },
+        {
+          path: '/register',
+          name: 'register',
+          component: () => import('../../views/auth/RegisterView.vue')
+        },
+        {
+          path: '/join/:id',
+          name: 'first-register',
+          component: () => import('../../views/auth/RegisterFirstView.vue')
+        },
+      ],
+      beforeEnter: (to,from,next) => {
+        if (localStorage.getItem("token")){
+          const queryString = window.location.search;
+          const params = new URLSearchParams(queryString);
+          if (params.get('redirect_uri')) {
+            location.replace(params.get('redirect_uri'));
+          }else router.replace("/");
+        }
+
+
+        next();
+      }
     },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../../views/NotFound.vue') },
   ]

@@ -15,7 +15,7 @@ body:after {
     z-index: -1;
 
 
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.4);
 
     position: fixed;
     top: 0;
@@ -39,11 +39,17 @@ unnamed-proj {
     background: rgba(255, 255, 255, 0.50);
     backdrop-filter: blur(1rem);
 
+    --tw-shadow-color: #b40202;
+    --tw-shadow: var(--tw-shadow-colored);
+
     --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --tw-shadow-colored: 0 25px 50px -12px var(#b40202);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+
+
     margin: auto;
-    max-width: 1280px;
+    max-width: 1000px;
     height: 100vh;
     z-index: 0;
 
@@ -65,4 +71,5 @@ unnamed-proj {
 .rotate {
     animation: rotate 10s infinite linear;
     font-family: monospace;
+    z-index: 0;
 }
