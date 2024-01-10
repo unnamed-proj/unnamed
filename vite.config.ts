@@ -12,7 +12,6 @@ export default defineConfig({
         register: resolve(__dirname, 'register.html'),
         portal: resolve(__dirname, 'portal.html'),
         logout: resolve(__dirname, 'logout.html'),
-        api: resolve(__dirname, 'alpha/api/user.html'),
       }
     }
   },

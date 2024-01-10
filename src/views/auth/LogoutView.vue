@@ -25,7 +25,7 @@ axios.get("/alpha/api/user?include=is_followed",{
     store.commit("setAccountData",{})
 
       if (params.get('redirect_uri')) {
-        router.push(`${params.get('redirect_uri')}`);
+        location.replace(`${params.get('redirect_uri')}`);
       }else router.push("/");
   }
 })

@@ -57,7 +57,7 @@ const SubmitClass = () => {
 }
 function Submit() {
   if (USERNAMEMethod.value=="true" && PASSWORDMethod.value=="true") {
-    axios.post("https://alpha.unnamed.org.cn/api/tokens",{
+    axios.post("/alpha/api/tokens",{
       name: USERNAME.value,
       password: PASSWORD.value,
       captcha_token: CaptchaToken.value,
@@ -85,7 +85,7 @@ function Submit() {
         msgApi("linMsgList","success","Login successfully.",3000);
         localStorage.setItem("-reg-first","true")
         if (params.get('redirect_uri')) {
-          router.push(`${params.get('redirect_uri')}`);
+          location.replace(`${params.get('redirect_uri')}`);
         }else router.push("/");
 
       }else {
