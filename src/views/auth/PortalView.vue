@@ -57,7 +57,7 @@ const SubmitClass = () => {
 }
 function Submit() {
   if (USERNAMEMethod.value=="true" && PASSWORDMethod.value=="true") {
-    axios.post("/alpha/api/tokens",{
+    axios.post("//alpha.unnamed.org.cn/api/tokens",{
       name: USERNAME.value,
       password: PASSWORD.value,
       captcha_token: CaptchaToken.value,
@@ -71,7 +71,7 @@ function Submit() {
         localStorage.setItem("token",ApiData["data"]["token"])
         axios.get("/alpha/api/user?include=is_followed",{
           headers: {
-            Cookie: `token=${localStorage.getItem("token")}`
+            // Cookie: `token=${localStorage.getItem("token")}`
           }
         }).then(response=>{
           const ApiData = response.data;

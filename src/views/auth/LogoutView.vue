@@ -18,7 +18,7 @@ function deleteCookie(name: String) {
 const router = useRouter();
 axios.get("/alpha/api/user?include=is_followed",{
   headers: {
-    Cookie: `token=${localStorage.getItem("token")}`
+    // Cookie: `token=${localStorage.getItem("token")}`
   }
 }).then(response=>{
   const ApiData = response.data;
