@@ -10,6 +10,8 @@ export default defineConfig({
       input: {
         index: resolve(__dirname, 'index.html'),
         404: resolve(__dirname, '404.html'),
+        register: resolve(__dirname, 'register.html'),
+        portal: resolve(__dirname, 'portal.html'),
       }
     }
   },
