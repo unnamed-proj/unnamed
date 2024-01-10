@@ -3,8 +3,8 @@ import Center from "../../components/Center.vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
 localStorage.removeItem("token")
-document.cookie = `token=; domain=.unnamed.org.cn; path=/`;
-document.cookie = `token=; domain=localhost; path=/`;
+document.cookie = `token=unknow; domain=.unnamed.org.cn; path=/`;
+document.cookie = `token=unknow; domain=localhost; path=/`;
 deleteCookie('token');
 
 const queryString = window.location.search;
