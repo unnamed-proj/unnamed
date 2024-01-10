@@ -51,7 +51,7 @@
 <template>
   <div ref="loading" class="w-screen h-screen opacity-100 fixed z-20 bg-white flex justify-center items-center
   transition-all duration-700">
-    <img src="../../assets/img/marisa_twirl.GIF" alt="">
+    <img src="../../assets/img/marisa_twirl.gif" alt="">
   </div>
   <unnamed-proj ref="MainElement">
     <Header />

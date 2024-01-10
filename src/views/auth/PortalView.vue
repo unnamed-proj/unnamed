@@ -36,12 +36,14 @@ const USERNAMEMCheck = (value: String) => {
 
 const PASSWORD = ref();
 const PASSWORDMethod = ref("none");
-import sha1 from "js-sha1/index";
 import axios from "axios";
 import {msgApi} from "../../components/api/msg-api.ts";
 import {useRouter} from "vue-router";
+// import sha1 from "js-sha1/build/sha1.min";
+import CryptoJS from "crypto-js";
+
 const PASSWORDCheck = (value: String) => {
-  PASSWORD.value = sha1(value);
+  PASSWORD.value = CryptoJS.SHA1(value.toString()).toString();
   if (value) {
     PASSWORDMethod.value = "true";
   }else PASSWORDMethod.value = "false";

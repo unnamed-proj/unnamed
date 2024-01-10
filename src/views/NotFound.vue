@@ -9,7 +9,7 @@ const router = useRouter();
 
 <template>
   <Center class="w-full h-screen flex-col gap-2">
-    <img class="w-48 rounded-xl" src="../assets/img/think_marisa.PNG" alt="">
+    <img class="w-48 rounded-xl" src="../assets/img/think_marisa.png" alt="">
 <!--    <div class="flex flex-col justify-center items-center leading-3 font-medium">-->
 <!--      <div>く__,.ヘヽ.　　　　/　,ー､ 〉</div>-->
 <!--      <div>＼ ', !-─‐-i　/　/´</div>-->

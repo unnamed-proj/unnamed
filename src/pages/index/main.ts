@@ -6,7 +6,6 @@ import router from "./router";
 import axios from 'axios'
 import {msgApi} from '../../components/api/msg-api.ts';
 
-
 const app = createApp(App);
 
 app.config.globalProperties.$axios = axios
