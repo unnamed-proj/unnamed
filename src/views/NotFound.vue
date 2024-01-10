@@ -35,7 +35,7 @@ const router = useRouter();
       <div class="mt-5 flex gap-5">
 <!--            -->
         <BoxButton @click="router.push('/')">返回首页</BoxButton>
-        <BoxButton @click="router.back('/')">返回上级</BoxButton>
+        <BoxButton @click="router.back()">返回上级</BoxButton>
       </div>
   </Center>
 </template>

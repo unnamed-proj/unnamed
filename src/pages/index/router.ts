@@ -38,11 +38,16 @@ const router = createRouter({
         },
       ],
       beforeEnter: (to,from,next) => {
+        const TO = to;
+        const FROM = from;
+        TO;
+        FROM;
+
         if (localStorage.getItem("token")){
           const queryString = window.location.search;
           const params = new URLSearchParams(queryString);
           if (params.get('redirect_uri')) {
-            location.replace(params.get('redirect_uri'));
+            location.replace(`${params.get('redirect_uri')}`);
           }else router.replace("/");
         }
 

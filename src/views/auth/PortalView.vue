@@ -36,7 +36,7 @@ const USERNAMEMCheck = (value: String) => {
 
 const PASSWORD = ref();
 const PASSWORDMethod = ref("none");
-import sha1 from "js-sha1/build/sha1.min";
+import sha1 from "js-sha1/index";
 import axios from "axios";
 import {msgApi} from "../../components/api/msg-api.ts";
 import {useRouter} from "vue-router";
@@ -66,7 +66,7 @@ function Submit() {
         msgApi("linMsgList","success","Login successfully.",3000);
         localStorage.setItem("-reg-first","true")
         if (params.get('redirect_uri')) {
-          router.push(params.get('redirect_uri'));
+          router.push(`${params.get('redirect_uri')}`);
         }else router.push("/");
 
       }else {

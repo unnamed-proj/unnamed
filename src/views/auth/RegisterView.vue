@@ -107,7 +107,7 @@ const USERNAMEMCheck = (value: String) => {
 
 const PASSWORD = ref();
 const PASSWORDMethod = ref("none");
-import sha1 from "js-sha1/build/sha1.min";
+import sha1 from "js-sha1/build/sha1.min"; // @ts-ignore
 const PASSWORDCheck = (value: String) => {
   PASSWORD.value = sha1(value);
   if (value) {
