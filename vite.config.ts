@@ -18,11 +18,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/alpha': {
-        target: 'https://alpha.unnamed.org.cn/',
+        target: 'https://alpha.unnamed.org.cn',
         changeOrigin: true,
-        pathRewrite: {
-          '^/alpha': ''
-        }
+        rewrite: (path) => path.replace(/^\/alpha/, ''),
       }
     }
   }

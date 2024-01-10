@@ -65,8 +65,8 @@
         </ul>
       </div>
     </div>
-
   </footer>
+
 </template>
 <script lang="ts">
 export default {

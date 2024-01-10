@@ -53,8 +53,9 @@
   transition-all duration-700">
     <img src="../../assets/img/marisa_twirl.gif" alt="">
   </div>
+
+  <Header />
   <unnamed-proj ref="MainElement">
-    <Header />
     <transition name="slide-fade">
       <router-view />
     </transition>
@@ -78,14 +79,25 @@ const loading: Ref<HTMLElement | null> = ref(null);
 const MainElement: Ref<HTMLElement | null> = ref(null);
 const BottomOpen = ref(false);
 
-axios.get("https://alpha.unnamed.org.cn/api/user?include=is_followed",{
+import { useStore } from 'vuex';
+const store = useStore();
+axios.get("/alpha/api/user?include=is_followed",{
   headers: {
     Cookie: `token=${localStorage.getItem("token")}`
   }
 }).then(response=>{
-  console.log(response.data)
+  const ApiData = response.data;
+  if (ApiData["code"]==0) {
+    store.commit("setAccountStatus",true)
+    store.commit("setAccountData",ApiData["data"])
+  }else {
+    localStorage.removeItem("token")
+    deleteCookie('token');
+  }
 })
-
+function deleteCookie(name: String) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 onMounted(() => {
 
   const container = MainElement.value;

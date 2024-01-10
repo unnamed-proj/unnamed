@@ -5,6 +5,8 @@ import BoxInput from "../../components/auth/box-input.vue";
 import BoxButton from "../../components/auth/box-button.vue";
 import {ref} from "vue";
 
+import { useStore } from 'vuex';
+const store = useStore();
 const router = useRouter();
 
 const queryString = window.location.search;
@@ -55,7 +57,7 @@ const SubmitClass = () => {
 }
 function Submit() {
   if (USERNAMEMethod.value=="true" && PASSWORDMethod.value=="true") {
-    axios.post("https://alpha.unnamed.org.cn/api/tokens",{
+    axios.post("/alpha/api/tokens",{
       name: USERNAME.value,
       password: PASSWORD.value,
       captcha_token: CaptchaToken.value,
@@ -63,8 +65,23 @@ function Submit() {
     }).then(response => {
       const ApiData = response.data;
       if (ApiData["code"]==0) {
+
         document.cookie = `token=${ApiData["data"]["token"]}; domain=.unnamed.org.cn; path=/`;
+        document.cookie = `token=${ApiData["data"]["token"]}; domain=localhost; path=/`;
         localStorage.setItem("token",ApiData["data"]["token"])
+        axios.get("/alpha/api/user?include=is_followed",{
+          headers: {
+            Cookie: `token=${localStorage.getItem("token")}`
+          }
+        }).then(response=>{
+          const ApiData = response.data;
+          console.log(response.data)
+          if (ApiData["code"]==0) {
+            store.commit("setAccountStatus",true)
+            store.commit("setAccountData",ApiData["data"])
+          }
+        })
+
         msgApi("linMsgList","success","Login successfully.",3000);
         localStorage.setItem("-reg-first","true")
         if (params.get('redirect_uri')) {
