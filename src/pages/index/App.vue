@@ -78,7 +78,11 @@ const loading: Ref<HTMLElement | null> = ref(null);
 const MainElement: Ref<HTMLElement | null> = ref(null);
 const BottomOpen = ref(false);
 
-axios.get("https://alpha.unnamed.org.cn/api/user?include=is_followed").then(response=>{
+axios.get("https://alpha.unnamed.org.cn/api/user?include=is_followed",{
+  headers: {
+    Cookie: `token=${localStorage.getItem("token")}`
+  }
+}).then(response=>{
   console.log(response.data)
 })
 

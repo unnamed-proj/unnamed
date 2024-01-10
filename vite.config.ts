@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
@@ -16,4 +15,15 @@ export default defineConfig({
     }
   },
   assetsInclude: [],
+  server: {
+    proxy: {
+      '/alpha': {
+        target: 'https://alpha.unnamed.org.cn/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/alpha': ''
+        }
+      }
+    }
+  }
 })
