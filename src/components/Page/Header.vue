@@ -2,7 +2,8 @@
 
 import Ad from "./ad.vue";
 import {ref} from "vue";
-
+import { useStore } from 'vuex';
+const store = useStore();
 const OpenHeader = ref(true);
 
 const AdTrue = () => {
@@ -11,7 +12,7 @@ const AdTrue = () => {
   }else return true;
 }
 
-function timestampToDatetime(timestamp) {
+function timestampToDatetime(timestamp: number) {
   const date = new Date(timestamp);
   return date.toLocaleString();
 }
@@ -20,12 +21,12 @@ function timestampToDatetime(timestamp) {
 <template>
 <div id="header" :class="OpenHeader? '':'-translate-y-full'" class="w-full max-w-[1000px] left-1/2 -translate-x-1/2 h-auto fixed z-10 top-0 transition-all duration-700 ease-in-out ">
   <ad v-if="AdTrue()"></ad>
-  <div v-if="($store.state.AccountStatus)" class="w-full border-t bg-black flex justify-center px-10 py-1.5 text-xs text-gray-400">
+  <div v-if="(store.state.AccountStatus)" class="w-full border-t bg-black flex justify-center px-10 py-1.5 text-xs text-gray-400">
     <div class="w-full flex justify-between  overflow-hidden">
       <div class="gap-2">
-        <span class="mr-10">Login IP: {{(($store.state.AccountData)["last_login_ip"])}}</span>
-        <span class="mr-10">Login Location: {{(($store.state.AccountData)["last_login_location"])}}</span>
-        <span class="mr-10">Login Time: {{timestampToDatetime(($store.state.AccountData)["last_login_time"])}}</span>
+        <span class="mr-10">Login IP: {{((store.state.AccountData)["last_login_ip"])}}</span>
+        <span class="mr-10">Login Location: {{((store.state.AccountData)["last_login_location"])}}</span>
+        <span class="mr-10">Login Time: {{timestampToDatetime((store.state.AccountData)["last_login_time"])}}</span>
       </div>
     </div>
 
@@ -39,7 +40,7 @@ function timestampToDatetime(timestamp) {
     </RouterLink>
 
     <div class="mr-1">
-      <div v-if="!($store.state.AccountStatus)">
+      <div v-if="!(store.state.AccountStatus)">
         <RouterLink to="/register" class=" transition-all duration-500
              focus-visible:text-white hover:text-white
             text-sm font-semibold shadow-sm px-5 py-2
@@ -55,8 +56,8 @@ function timestampToDatetime(timestamp) {
           IN
         </RouterLink>
       </div>
-      <div v-if="($store.state.AccountStatus)">
-        <img :src="(($store.state.AccountData)['avatar']['middle'])" class="w-12 h-12 rounded border-2 border-gray-100 bg-white" />
+      <div v-if="(store.state.AccountStatus)">
+        <img :src="((store.state.AccountData)['avatar']['middle'])" class="w-12 h-12 rounded border-2 border-gray-100 bg-white" />
 
       </div>
     </div>
