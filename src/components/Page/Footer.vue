@@ -16,15 +16,20 @@
       </p>
     </div>
     <ul class="items-center justify-center mt-6 space-y-5 text-base sm:grid sm:space-x-4 sm:space-y-0 sm:mx-20 grid-cols-5 gap-4">
+      <li v-for="(item,index) in footerNavsRouter" :key="index" class="hover:text-gray-800">
+        <RouterLink :to="item.href">
+          {{item.name}}
+        </RouterLink>
+      </li>
       <li v-for="(item,index) in footerNavs" :key="index" class="hover:text-gray-800">
-        <a href="{{item.href}}">
+        <a :href="item.href">
           {{item.name}}
         </a>
       </li>
     </ul>
     <div class="mt-8 items-center justify-between sm:flex">
       <div class="mt-4 sm:mt-0">
-        &copy; 2024 「Unnamed-proj. Organization」 All rights reserved.
+        &copy; 2024 <a href="https://mioseiya.com/" class="mx-1 hover:text-pink-700 cursor-pointer transition-all duration-500">「MioSeiya」</a> All rights reserved.
       </div>
       <div class="mt-6 sm:mt-0 mb-2">
         <ul class="flex items-center space-x-4">
@@ -65,34 +70,47 @@
         </ul>
       </div>
     </div>
+    <div class="mt-6 border-t pt-4 flex flex-col sm:flex-row items-start sm:justify-between sm:items-center text-sm gap-2">
+<!--      <div class="flex flex-col items-start gap-2">-->
+        <div class="flex items-center">MAINTAINER OF THIS WEBSITE <a href="https://mio.am/" class="ml-2 hover:text-[#2a2449] cursor-pointer transition-all duration-500 flex items-center"><img src="https://cn.gravatar.com/avatar/a4cd208dc18e91177ea4cb94bf4ff32e?s=200&d=blank&r=g" class="w-5 h-5 rounded-full mr-0.5" />Miourasaki</a></div>
+        <div class="flex items-center">WEBSITE UI DESIGN BY <a href="https://kaslet.art/" class="ml-2 hover:text-[#f0c1b1] cursor-pointer transition-all duration-500">Kaslet.art</a></div>
+<!--      </div>-->
+    </div>
   </footer>
+  <div class="w-full py-2 px-10 text-stone-400 shadow-inner shadow-stone-200 bg-amber-50 flex justify-between items-center text-sm">
+    <div>没有语言选项，要不试试Edge?</div>
+    <div>备案号？没有！但是有这个：<a href="https://icp.gov.moe/?keyword=20241100" target="_blank">萌ICP备20241100号</a></div>
+    <div>CC-BY-NC 4.0 (是这样用的吗？</div>
+  </div>
 
 </template>
 <script lang="ts">
 export default {
   data: function () {
     return {
-      footerNavs: [
+      footerNavsRouter: [
         {
-          href: 'javascript:void()',
+          href: '/about',
           name: 'About'
         },
+        {
+          href: '/support',
+          name: 'Support'
+        }
+      ],
+      footerNavs: [
         {
           href: 'javascript:void()',
           name: 'Blog'
         },
         {
-          href: 'javascript:void()',
+          href: 'https://github.com/orgs/unnamed-proj/people',
           name: 'Team'
         },
         {
-          href: 'javascript:void()',
-          name: 'Careers'
+          href: 'https://alpha.unnamed.org.cn/',
+          name: 'Forum'
         },
-        {
-          href: 'javascript:void()',
-          name: 'Support'
-        }
       ]
     }
   },
