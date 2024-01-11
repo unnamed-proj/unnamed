@@ -70,7 +70,7 @@ function SendCode() {
   if (EmailMethod.value=="true") {
 
     axios.post(
-        "//alpha.unnamed.org.cn/api/user/register/email",{
+        "https://alpha.unnamed.org.cn/api/user/register/email",{
           email: Email.value,
           captcha_token: CaptchaToken.value,
           captcha_code: Captcha.value
@@ -118,7 +118,7 @@ const PASSWORDCheck = (value: String) => {
 
 function Submit() {
   if (SubmitClass()) {
-    axios.post("//alpha.unnamed.org.cn/api/users?include=is_followed,is_me",{
+    axios.post("https://alpha.unnamed.org.cn/api/users?include=is_followed,is_me",{
       "email": Email.value,
       "email_code": Code.value,
       "username": USERNAME.value,

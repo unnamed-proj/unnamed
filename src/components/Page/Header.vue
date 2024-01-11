@@ -21,7 +21,7 @@ function timestampToDatetime(timestamp: number) {
 <template>
 <div id="header" :class="OpenHeader? '':'-translate-y-full'" class="w-full max-w-[1000px] left-1/2 -translate-x-1/2 h-auto fixed z-10 top-0 transition-all duration-700 ease-in-out ">
   <ad v-if="AdTrue()"></ad>
-  <div v-if="(store.state.AccountStatus)" class="w-full border-t bg-black flex justify-center px-10 py-1.5 text-xs text-gray-400">
+  <div v-if="(store.state.AccountStatus)" class="w-full border-t bg-amber-50 flex justify-center px-10 py-1.5 text-xs text-stone-600">
     <div class="w-full flex justify-between  overflow-hidden">
       <div class="gap-2">
         <span class="mr-10">Login IP: {{((store.state.AccountData)["last_login_ip"])}}</span>

@@ -57,7 +57,7 @@ const SubmitClass = () => {
 }
 function Submit() {
   if (USERNAMEMethod.value=="true" && PASSWORDMethod.value=="true") {
-    axios.post("//alpha.unnamed.org.cn/api/tokens",{
+    axios.post("https://alpha.unnamed.org.cn/api/tokens",{
       name: USERNAME.value,
       password: PASSWORD.value,
       captcha_token: CaptchaToken.value,
