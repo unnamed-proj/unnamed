@@ -114,6 +114,11 @@ function Submit() {
       </div>
       <img :src="CaptchaImage" alt="Captcha Image" class="h-12 w-auto">
     </div>
+    <div class="flex w-full max-w-[25rem] text-[#797b92] font-mono uppercase">Reset Password ——> <span @click="()=>{
+       if (params.get('redirect_uri')) {
+          router.replace(`/reset?redirect_uri=/portal?redirect_uri=${params.get('redirect_uri')}`);
+        }else router.push('/reset?redirect_uri=/portal');
+      }" class="ml-2 text-stone-400 hover:text-[#797b92] cursor-pointer">Here</span></div>
 
 
 
