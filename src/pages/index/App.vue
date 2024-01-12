@@ -81,6 +81,9 @@ const BottomOpen = ref(false);
 
 import { useStore } from 'vuex';
 const store = useStore();
+document.cookie = `token=${localStorage.getItem("token")}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=.unnamed.org.cn; path=/`;
+document.cookie = `token=${localStorage.getItem("token")}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=localhost; path=/`;
+
 axios.get("/alpha/api/user?include=is_followed",{
   headers: {
     // Cookie: `token=${localStorage.getItem("token")}`
@@ -90,6 +93,7 @@ axios.get("/alpha/api/user?include=is_followed",{
   if (ApiData["code"]==0) {
     store.commit("setAccountStatus",true)
     store.commit("setAccountData",ApiData["data"])
+
   }else {
     localStorage.removeItem("token")
     deleteCookie('token');
