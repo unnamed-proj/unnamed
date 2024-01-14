@@ -16,9 +16,9 @@ function deleteCookie(name: String) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 const router = useRouter();
-axios.get("/alpha/api/user?include=is_followed",{
+axios.get("https://api.mio.am/project/unnamed/data",{
   headers: {
-    // Cookie: `token=${localStorage.getItem("token")}`
+    Authorization: `${localStorage.getItem("token")}`
   }
 }).then(response=>{
   const ApiData = response.data;

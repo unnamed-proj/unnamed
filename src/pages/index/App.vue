@@ -84,10 +84,9 @@ const store = useStore();
 document.cookie = `token=${localStorage.getItem("token")}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=.unnamed.org.cn; path=/`;
 document.cookie = `token=${localStorage.getItem("token")}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=localhost; path=/`;
 
-axios.get("/alpha/api/user?include=is_followed",{
+axios.get("https://api.mio.am/project/unnamed/data",{
   headers: {
-    // Cookie: `token=${localStorage.getItem("token")}`
-  }
+    Authorization: `${localStorage.getItem("token")}`  }
 }).then(response=>{
   const ApiData = response.data;
   if (ApiData["code"]==0) {

@@ -72,7 +72,7 @@ function timestampToDatetime(timestamp: number) {
         </RouterLink>
 
         <div class="w-12 h-12 rounded border-2 border-gray-100 bg-white relative overflow-hidden">
-          <img :src="((store.state.AccountData)['avatar']['middle'])" class="w-full h-full absolute top-0 left-0" />
+          <img src="../../assets/img/default.webp" class="w-full h-full absolute top-0 left-0" />
           <img :src="`https://cn.gravatar.com/avatar/${CryptoJS.MD5((store.state.AccountData)['email'].toString()).toString()}?s=200&d=blank&r=g`" class=" w-full h-full absolute top-0 left-0" />
         </div>
 

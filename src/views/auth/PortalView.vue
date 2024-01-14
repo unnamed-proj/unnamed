@@ -69,10 +69,9 @@ function Submit() {
         document.cookie = `token=${ApiData["data"]["token"]}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=.unnamed.org.cn; path=/`;
         document.cookie = `token=${ApiData["data"]["token"]}; expires=Fri, 31 Dec 9999 23:59:59 GMT; domain=localhost; path=/`;
         localStorage.setItem("token",ApiData["data"]["token"])
-        axios.get("/alpha/api/user?include=is_followed",{
+        axios.get("https://api.mio.am/project/unnamed/data",{
           headers: {
-            // Cookie: `token=${localStorage.getItem("token")}`
-          }
+            Authorization: `${localStorage.getItem("token")}`          }
         }).then(response=>{
           const ApiData = response.data;
           console.log(response.data)

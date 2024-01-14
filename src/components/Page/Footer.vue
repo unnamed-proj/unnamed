@@ -80,7 +80,7 @@
     </footer>
     <div class="w-full py-2 px-10 text-stone-400 shadow-inner shadow-stone-200 bg-amber-50 flex justify-between items-center text-sm">
       <div>没有语言选项，要不试试Edge?</div>
-      <div>备案号？没有！但是有这个：<a href="https://icp.gov.moe/?keyword=20241100" target="_blank">萌ICP备20241100号</a></div>
+      <div>备案号？没有！但是有这个：<a href="https://icp.gov.moe/?keyword=20241100" target="_blank" class="hover:text-[#ff1686] transition-all duration-500">萌ICP备20241100号</a></div>
       <div>CC-BY-NC 4.0 (是这样用的吗？</div>
     </div>
   </footer>

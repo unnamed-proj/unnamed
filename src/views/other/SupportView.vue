@@ -8,7 +8,6 @@ import {msgApi} from '../../components/api/msg-api.ts';
 
 
 
-
 const CaptchaToken = ref();
 const CaptchaImage = ref();
 const CaptchaMethod = ref("none");
