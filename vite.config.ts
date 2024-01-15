@@ -18,13 +18,13 @@ export default defineConfig({
     }
   },
   assetsInclude: [],
-  server: {
-    proxy: {
-      '/alpha': {
-        target: 'https://alpha.unnamed.org.cn',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/alpha/, ''),
-      }
-    }
-  }
+  // server: {
+  //   proxy: {
+  //     '/alpha': {
+  //       target: 'https://alpha.unnamed.org.cn',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/alpha/, ''),
+  //     }
+  //   }
+  // }
 })
